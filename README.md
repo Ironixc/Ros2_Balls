@@ -3,7 +3,7 @@
 ## Cara Menjalankan Project
 
 1. Masuk ke folder `ros2_game`:
-   ```bash
+```bash
    cd ~/ros2_game
 
 ```
@@ -123,7 +123,7 @@ ros2 param set /<nama_node> <nama_parameter> <nilai>
 
 ## Screenshot rqt_graph
 
-![RQT Graph Screenshot](../../Screenshot%20rqt_graph/Screenshot from 2026-10-28 20-37-43.png)
+![RQT Graph Screenshot](<Screenshot rqt_graph/Screenshot from 2026-10-28 20-37-43.png>)
 
 ---
 
@@ -131,4 +131,4 @@ ros2 param set /<nama_node> <nama_parameter> <nilai>
 
 ---
 
-<video src="../../Demo_Vidio/Screencast from 10-28-2026 10:02:38 PM.webm" controls="controls" width="600"></video>
+<video src="../../Demo_Vidio/demo.mp4" controls="controls" width="600"></video>
