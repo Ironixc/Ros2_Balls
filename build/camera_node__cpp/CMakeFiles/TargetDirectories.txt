@@ -1,0 +1,10 @@
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/uninstall.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/camera_node__cpp_uninstall.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/Camera_node.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/test.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/edit_cache.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/rebuild_cache.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/list_install_components.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/install.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/install/local.dir
+/home/ironic/ros2_game/build/camera_node__cpp/CMakeFiles/install/strip.dir

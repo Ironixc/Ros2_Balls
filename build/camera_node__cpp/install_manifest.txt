@@ -1,0 +1,16 @@
+/home/ironic/ros2_game/install/camera_node__cpp/lib/camera_node__cpp/Camera_node
+/home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/package_run_dependencies/camera_node__cpp
+/home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/parent_prefix_path/camera_node__cpp
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.sh
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.dsv
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.sh
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.dsv
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.bash
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.sh
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.zsh
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.dsv
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.dsv
+/home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/packages/camera_node__cpp
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig.cmake
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig-version.cmake
+/home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.xml

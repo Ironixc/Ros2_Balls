@@ -1,0 +1,15 @@
+camera_node:
+  ros__parameters:
+    source: "0"
+    fps: 30.0
+    Lebar: 640
+    Tinggi: 480
+
+game_node:
+  ros__parameters:
+    balls: 3
+    holdd: 0.5
+    v: 150.0
+    radius: 40
+    marea: 300
+    timer: 10.0

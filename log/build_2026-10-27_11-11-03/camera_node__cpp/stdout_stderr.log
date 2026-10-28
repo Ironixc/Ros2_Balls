@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target Camera_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/Camera_node.dir/src/Camera_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable Camera_node[0m
+[100%] Built target Camera_node
+-- Install configuration: ""
+-- Installing: /home/ironic/ros2_game/install/camera_node__cpp/lib/camera_node__cpp/Camera_node
+-- Set runtime path of "/home/ironic/ros2_game/install/camera_node__cpp/lib/camera_node__cpp/Camera_node" to ""
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/package_run_dependencies/camera_node__cpp
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/parent_prefix_path/camera_node__cpp
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.sh
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.sh
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.dsv
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.bash
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.sh
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.zsh
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.dsv
+-- Installing: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.dsv
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/packages/camera_node__cpp
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig.cmake
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig-version.cmake
+-- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.xml
