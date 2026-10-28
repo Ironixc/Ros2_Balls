@@ -1,0 +1,25 @@
+[0.007s] Invoking command in '/home/ironic/ros2_game/build/camera_node__cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ironic/install/yolo26_detector:/opt/ros/humble /usr/bin/cmake --build /home/ironic/ros2_game/build/camera_node__cpp -- -j20 -l20
+[0.046s] [ 50%] [32mBuilding CXX object CMakeFiles/Camera_node.dir/src/Camera_node.cpp.o[0m
+[3.072s] [100%] [32m[1mLinking CXX executable Camera_node[0m
+[3.361s] [100%] Built target Camera_node
+[3.370s] Invoked command in '/home/ironic/ros2_game/build/camera_node__cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ironic/install/yolo26_detector:/opt/ros/humble /usr/bin/cmake --build /home/ironic/ros2_game/build/camera_node__cpp -- -j20 -l20
+[3.377s] Invoking command in '/home/ironic/ros2_game/build/camera_node__cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ironic/install/yolo26_detector:/opt/ros/humble /usr/bin/cmake --install /home/ironic/ros2_game/build/camera_node__cpp
+[3.382s] -- Install configuration: ""
+[3.382s] -- Installing: /home/ironic/ros2_game/install/camera_node__cpp/lib/camera_node__cpp/Camera_node
+[3.383s] -- Set runtime path of "/home/ironic/ros2_game/install/camera_node__cpp/lib/camera_node__cpp/Camera_node" to ""
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/package_run_dependencies/camera_node__cpp
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/parent_prefix_path/camera_node__cpp
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.sh
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/ament_prefix_path.dsv
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.sh
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/environment/path.dsv
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.bash
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.sh
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.zsh
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/local_setup.dsv
+[3.383s] -- Installing: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.dsv
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/ament_index/resource_index/packages/camera_node__cpp
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig.cmake
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/cmake/camera_node__cppConfig-version.cmake
+[3.383s] -- Up-to-date: /home/ironic/ros2_game/install/camera_node__cpp/share/camera_node__cpp/package.xml
+[3.384s] Invoked command in '/home/ironic/ros2_game/build/camera_node__cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ironic/install/yolo26_detector:/opt/ros/humble /usr/bin/cmake --install /home/ironic/ros2_game/build/camera_node__cpp

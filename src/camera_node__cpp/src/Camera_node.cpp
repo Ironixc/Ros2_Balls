@@ -29,14 +29,10 @@ public:
 
         publisher_ = this->create_publisher<sensor_msgs::msg::Image>("/camera/image_raw", 10);
 
-        if (source_str.size() == 1 && isdigit(source_str[0])) {
             int cam_id = stoi(source_str);
             kamera_.open(cam_id, cv::CAP_V4L2);
             is_video_file_ = false;
-        } else {
-            kamera_.open(source_str);
-            is_video_file_ = true;
-        }
+        
             kamera_.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'));
             kamera_.set(cv::CAP_PROP_FRAME_WIDTH, Lebar);
             kamera_.set(cv::CAP_PROP_FRAME_HEIGHT, Tinggi);
@@ -47,7 +43,6 @@ public:
         param_cb_handle_ = this->add_on_set_parameters_callback(
             std::bind(&CamPub::on_parameter_change, this, std::placeholders::_1));
 
-        // RCLCPP_INFO(this->get_logger(), "Publishing at %.1f FPS", fps);
     }
 
 private:
@@ -89,7 +84,7 @@ private:
     {
         cv::Mat frame;
         kamera_ >> frame;
-
+        cv::flip(frame, frame, 1);
 
         std_msgs::msg::Header header;
         header.stamp = this->now();

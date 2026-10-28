@@ -9,6 +9,8 @@ import math
 from ultralytics import YOLO
 from std_msgs.msg import String
 import numpy as np
+from rcl_interfaces.msg import SetParametersResult
+from rclpy.parameter import Parameter
 
 class gamenode(Node):
     def __init__(self):
@@ -17,13 +19,13 @@ class gamenode(Node):
         path = '/home/ironic/ros2_game/src/camera_node__cpp/Detection/best.pt'
         self.model = YOLO(path)
 
-        self.declare_parameter('balls', 7)
-        self.declare_parameter('holdd', 0.5)
+        self.declare_parameter('balls', 3)
+        self.declare_parameter('holdd', 2.0)
         self.declare_parameter('v', 150.0)
         self.declare_parameter('radius', 40)
         self.declare_parameter('marea', 300)
-        self.declare_parameter('timer', 10.0)
-
+        self.declare_parameter('timer', 120.0)
+    
         self.balls_count = self.get_parameter('balls').value
         self.holduration = self.get_parameter('holdd').value
         self.v = self.get_parameter('v').value
@@ -59,6 +61,53 @@ class gamenode(Node):
         self.score = 0
         self.br = CvBridge()
 
+        self.add_on_set_parameters_callback(self.parameter_callback)
+
+    def add_new_ball(self):
+        random_v = self.v * random.uniform(0.5, 1.5)
+        speed_per_frame = random_v / 30.0
+        angle = random.uniform(0.4, 1.2)
+        vx = speed_per_frame * math.cos(angle) * random.choice([-1, 1])
+        vy = speed_per_frame * math.sin(angle) * random.choice([-1, 1])
+        self.ball_list.append({
+            'x': random.randint(self.radius + 10, 640 - self.radius - 10),
+            'y': random.randint(self.radius + 10, 480 - self.radius - 10),
+            'vx': vx,
+            'vy': vy,
+            'timer': 0.0,
+            'is_touched': False
+        })
+
+    def parameter_callback(self, params):
+        for param in params:
+            if param.name == 'holdd':
+                self.holduration = param.value
+                self.get_logger().info(f"Parameter 'holdd' diubah ke: {self.holduration} detik")
+            elif param.name == 'v':
+                self.v = param.value
+                self.get_logger().info(f"Parameter 'v' diubah ke: {self.v}")
+            elif param.name == 'radius':
+                self.radius = param.value
+                self.get_logger().info(f"Parameter 'radius' diubah ke: {self.radius}")
+            elif param.name == 'marea':
+                self.marea = param.value
+                self.get_logger().info(f"Parameter 'marea' diubah ke: {self.marea}")
+            elif param.name == 'timer':
+                self.duration = param.value
+                self.get_logger().info(f"Parameter 'timer' diubah ke: {self.duration} detik")
+            elif param.name == 'balls':
+                new_count = param.value
+                if new_count > len(self.ball_list):
+                    for _ in range(new_count - len(self.ball_list)):
+                        self.add_new_ball()
+                elif new_count < len(self.ball_list):
+                    self.ball_list = self.ball_list[:new_count]
+                
+                self.balls_count = new_count
+                self.get_logger().info(f"Jumlah bola ('balls') saat ini: {self.balls_count}")
+
+        return SetParametersResult(successful=True)
+
     def listener_callback(self, data):
         frame = self.br.imgmsg_to_cv2(data, desired_encoding='bgr8')
         height, width, _ = frame.shape
@@ -82,6 +131,9 @@ class gamenode(Node):
             if conf > 0.6:
                 x1, y1, x2, y2 = map(float, box.xyxy[0])
                 valid_boxes.append((x1, y1, x2, y2))
+                area = (x2 - x1) * (y2 - y1)
+                if area >= self.marea:
+                    valid_boxes.append((x1, y1, x2, y2))
 
         for ball in self.ball_list:
             ball['is_touched'] = False
@@ -145,10 +197,10 @@ class gamenode(Node):
             if ball['timer'] > 0:
                 timer_text = f"{ball['timer']:.1f}s"
                 cv2.putText(annotated_frame, timer_text, (center[0] - 20, center[1] + 5),
-                            cv2.FONT_ITALIC, 0.6, (255, 255, 255), 2)
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
 
         cv2.putText(annotated_frame, f"Score: {self.score}", (20, 40), 
-                    cv2.FONT_ITALIC, 1.0, (255, 255, 0), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 2)
 
         debug_msg = self.br.cv2_to_imgmsg(annotated_frame, encoding='bgr8')
         self.debug_pub.publish(debug_msg)

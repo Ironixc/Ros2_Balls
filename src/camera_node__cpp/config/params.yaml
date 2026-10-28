@@ -8,8 +8,8 @@ camera_node:
 game_node:
   ros__parameters:
     balls: 3
-    holdd: 0.5
+    holdd: 2.0
     v: 150.0
     radius: 40
     marea: 300
-    timer: 10.0
+    timer: 60.0

@@ -1,0 +1,4 @@
+Invoking command in '/home/ironic/ros2_game/build/camera_node__cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ironic/ros2_game/build/camera_node__cpp -- -j20 -l20
+Invoked command in '/home/ironic/ros2_game/build/camera_node__cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ironic/ros2_game/build/camera_node__cpp -- -j20 -l20
+Invoking command in '/home/ironic/ros2_game/build/camera_node__cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ironic/ros2_game/build/camera_node__cpp
+Invoked command in '/home/ironic/ros2_game/build/camera_node__cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ironic/ros2_game/build/camera_node__cpp
