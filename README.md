@@ -131,4 +131,8 @@ ros2 param set /<nama_node> <nama_parameter> <nilai>
 
 ---
 
-<video src="https://raw.githubusercontent.com/Ironixc/Ros2_Balls/main/Demo_Vidio/demo.mp4" controls="controls" width="600"></video>
+
+
+https://github.com/user-attachments/assets/bbe8ae3f-5b30-4181-9051-e5a3bf5d341e
+
+
