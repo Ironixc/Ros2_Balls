@@ -127,8 +127,8 @@ ros2 param set /<nama_node> <nama_parameter> <nilai>
 
 ---
 
-## Screenshot rqt_graph
+## Video demo
 
 ---
 
-<video src="../../Demo_Vidio/demo.mp4" controls="controls" width="600"></video>
+<video src="Demo_Vidio/demo.mp4" controls="controls" width="600"></video>
