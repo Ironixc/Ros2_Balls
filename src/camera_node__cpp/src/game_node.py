@@ -11,6 +11,7 @@ from std_msgs.msg import String
 import numpy as np
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.parameter import Parameter
+from std_srvs.srv import Trigger
 
 class gamenode(Node):
     def __init__(self):
@@ -24,7 +25,7 @@ class gamenode(Node):
         self.declare_parameter('v', 150.0)
         self.declare_parameter('radius', 40)
         self.declare_parameter('marea', 300)
-        self.declare_parameter('timer', 120.0)
+        self.declare_parameter('timer', 10.0)
     
         self.balls_count = self.get_parameter('balls').value
         self.holduration = self.get_parameter('holdd').value
@@ -34,21 +35,11 @@ class gamenode(Node):
         self.last_time = self.get_clock().now()
         self.start_time = self.get_clock().now()
         self.duration = self.get_parameter('timer').value
+        self.is_game_over = False
 
         self.ball_list = []
         for _ in range(self.balls_count):
-            random_v = self.v * random.uniform(0.5, 1.5)
-            speed_per_frame = random_v / 30.0
-            angle = random.uniform(0.4, 1.2)
-            vx = speed_per_frame * math.cos(angle) * random.choice([-1, 1])
-            vy = speed_per_frame * math.sin(angle) * random.choice([-1, 1])
-            self.ball_list.append({
-                'x': random.randint(self.radius + 10, 640 - self.radius - 10),
-                'y': random.randint(self.radius + 10, 480 - self.radius - 10),
-                'vx': vx,
-                'vy': vy,
-                'timer': 0.0
-            })
+            self.add_new_ball()
 
         self.subscription = self.create_subscription(
             Image,
@@ -62,6 +53,12 @@ class gamenode(Node):
         self.br = CvBridge()
 
         self.add_on_set_parameters_callback(self.parameter_callback)
+
+        self.reset_srv = self.create_service(
+            Trigger,
+            '/game/reset',
+            self.reset_game_callback
+        )
 
     def add_new_ball(self):
         random_v = self.v * random.uniform(0.5, 1.5)
@@ -108,6 +105,25 @@ class gamenode(Node):
 
         return SetParametersResult(successful=True)
 
+    def reset_game_callback(self, request, response):
+        self.score = 0
+        self.start_time = self.get_clock().now()
+        self.last_time = self.get_clock().now()
+        self.is_game_over = False
+
+        self.ball_list.clear()
+        for _ in range(self.balls_count):
+            self.add_new_ball()
+
+        score_msg = String()
+        score_msg.data = f"Score: {self.score}"
+        self.score_pub.publish(score_msg)
+
+        response.success = True
+        response.message = "Game reset"
+        return response
+
+    
     def listener_callback(self, data):
         frame = self.br.imgmsg_to_cv2(data, desired_encoding='bgr8')
         height, width, _ = frame.shape
@@ -118,8 +134,18 @@ class gamenode(Node):
         e_time = (current_time - self.start_time).nanoseconds / 1e9
 
         if e_time >= self.duration:
-            self.get_logger().info(f"TIMES UP")
-            rclpy.shutdown()
+            if not self.is_game_over:
+                self.get_logger().info("TIMES UP")
+                self.is_game_over = True
+
+            cv2.putText(frame, f"Score: {self.score}", (width // 2 - 120, height // 2),
+                        cv2.FONT_HERSHEY_SIMPLEX, 3.0, (0, 0, 255), 2)
+
+            debug_msg = self.br.cv2_to_imgmsg(frame, encoding='bgr8')
+            self.debug_pub.publish(debug_msg)
+            cv2.imshow("wak", frame)
+            if cv2.waitKey(1) == 32:
+                rclpy.shutdown()
             return
 
         results = self.model(frame, verbose=False)

@@ -116,9 +116,12 @@ Desainnya kepisah antara C++ (`Camera_node.cpp`) dan Python (`game_node.py`) kay
 1. **Parameter Dinamis:** mengubah parameter di tengah-tengah saat program sedang berjalan :
 ```bash
 ros2 param set /<nama_node> <nama_parameter> <nilai>
-
 ```
 
+2. **Service :** untuk me-reset game dan skor : 
+```bash 
+ros2 service call /game/reset std_srvs/srv/Trigger
+```
 ---
 
 ## Screenshot rqt_graph
